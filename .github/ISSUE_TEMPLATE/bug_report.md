@@ -25,8 +25,8 @@ If applicable, add screenshots to help explain your problem.
 
 **Questions (please complete the following information):**
  - When you last updated: [e.g. last week]
- - Are you using custom resource? which ones? [e.g. zdiscord, qb-target]
- - Have you renamed `qb-` to something custom? [e.g. yes/no]
+ - Are you using custom resource? which ones? [e.g. zdiscord, btd-target]
+ - Have you renamed `btd-` to something custom? [e.g. yes/no]
 
 **Additional context**
 Add any other context about the problem here.

@@ -1,6 +1,6 @@
-# qb-core
+# btd-core
 
-### [Official QBCore Documentation](https://qbcore-framework.github.io/qb-docs/)
+### [Official QBCore Documentation](https://qbcore-framework.github.io/btd-docs/)
 
 
 ## QBCore is officially partnered with Sonoran Software!

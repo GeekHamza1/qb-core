@@ -205,7 +205,7 @@ QBCore.Commands.Add('setgang', 'Set A Players Gang (Admin Only)', { { name = 'id
     end
 end, 'admin')
 
--- Inventory (should be in qb-inventory?)
+-- Inventory (should be in btd-inventory?)
 
 QBCore.Commands.Add('clearinv', 'Clear Players Inventory (Admin Only)', { { name = 'id', help = 'Player ID' } }, false, function(source, args)
     local playerId = args[1] and args[1] ~= '' or source
@@ -244,7 +244,7 @@ QBCore.Commands.Add('ooc', 'OOC Chat Message', {}, false, function(source, args)
                     multiline = true,
                     args = {'Proxmity OOC | '.. GetPlayerName(source), message}
                 })
-                TriggerEvent('qb-log:server:CreateLog', 'ooc', 'OOC', 'white', '**' .. GetPlayerName(source) .. '** (CitizenID: ' .. Player.PlayerData.citizenid .. ' | ID: ' .. source .. ') **Message:** ' .. message, false)
+                TriggerEvent('btd-log:server:CreateLog', 'ooc', 'OOC', 'white', '**' .. GetPlayerName(source) .. '** (CitizenID: ' .. Player.PlayerData.citizenid .. ' | ID: ' .. source .. ') **Message:** ' .. message, false)
             end
         end
     end
