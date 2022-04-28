@@ -120,22 +120,28 @@ RegisterNetEvent('QBCore:UpdatePlayer', function()
     if not Player then return end
     local newHunger = Player.PlayerData.metadata['hunger'] - QBCore.Config.Player.HungerRate
     local newThirst = Player.PlayerData.metadata['thirst'] - QBCore.Config.Player.ThirstRate
+    local newAddiction = Player.PlayerData.metadata['addiction'] - QBCore.Config.Player.AddictionRate
+
     if newHunger <= 0 then
         newHunger = 0
     end
     if newThirst <= 0 then
         newThirst = 0
     end
+    if newAddiction <= 0 then
+        newAddiction = 0
+    end
     Player.Functions.SetMetaData('thirst', newThirst)
+    Player.Functions.SetMetaData('addiction', newAddiction)
     Player.Functions.SetMetaData('hunger', newHunger)
-    TriggerClientEvent('hud:client:UpdateNeeds', src, newHunger, newThirst)
+    TriggerClientEvent('hud:client:UpdateNeeds', src, newHunger, newThirst, newAddiction)
     Player.Functions.Save()
 end)
 
 RegisterNetEvent('QBCore:Server:SetMetaData', function(meta, data)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    if meta == 'hunger' or meta == 'thirst' then
+    if meta == 'hunger' or meta == 'thirst' or meta == 'addiction' then
         if data > 100 then
             data = 100
         end
@@ -143,7 +149,7 @@ RegisterNetEvent('QBCore:Server:SetMetaData', function(meta, data)
     if Player then
         Player.Functions.SetMetaData(meta, data)
     end
-    TriggerClientEvent('hud:client:UpdateNeeds', src, Player.PlayerData.metadata['hunger'], Player.PlayerData.metadata['thirst'])
+    TriggerClientEvent('hud:client:UpdateNeeds', src, Player.PlayerData.metadata['hunger'], Player.PlayerData.metadata['thirst'],  Player.PlayerData.metadata['addiction'])
 end)
 
 RegisterNetEvent('QBCore:ToggleDuty', function()
