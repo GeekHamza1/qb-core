@@ -261,6 +261,13 @@ function QBCore.Functions.IsWhitelisted(source)
     return false
 end
 
+-- is player Vip
+function QBCore.Functions.IsVip(source)
+    local src = source
+      result = exports.oxmysql:fetchSync('SELECT COUNT(*) as yes FROM vip WHERE license = ?', {source})
+      if  result[1].yes >= 1 then
+     return true end
+end
 -- Setting & Removing Permissions
 
 function QBCore.Functions.AddPermission(source, permission)
